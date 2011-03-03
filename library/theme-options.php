@@ -127,7 +127,24 @@ $options = array (
 		"type" => "text",
 		"std" => "5" ),
 
+	array( "type" => "close" ),
+
+	array( "name" => __('Footer', 'pressplay'),
+		"type" => "title" ),
+
+	array( "type" => "open" ),
+
+	array(
+		"name" => "",
+		"desc" => __('Enter the text to be displayed in the copyright area of the footer'),
+		"note" => __('If left blank, the name of the blog will be used'),
+		"id" => $shortname."_footer_copyright",
+		"img" => false,
+		"type" => "text",
+		"std" => "" ),
+
 	array( "type" => "close" )
+
 );
 
 // Admin page functionality
