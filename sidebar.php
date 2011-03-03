@@ -84,7 +84,6 @@ echo $output;
 						<li><a href="#cats"><?php _e('Categories', 'pressplay'); ?></a></li>
 						<li><a href="#tags"><?php _e('Tags', 'pressplay'); ?></a></li>
 						<li><a href="#dats"><?php _e('Dates', 'pressplay'); ?></a></li>
-						<li><a href="#auts"><?php _e('Authors', 'pressplay'); ?></a></li>
 					</ul>
 					
 					<div id="cats" class="tabdiv">
@@ -105,12 +104,6 @@ echo $output;
 						</ul>
 					</div><!-- dats -->
 
-					<div id="auts" class="tabdiv">
-						<ul>
-<?php wp_list_authors('optioncount=1'); ?>
-						</ul>
-					</div><!-- dats -->
-				
 				</div><!-- tab-box -->
 			</div><!-- #widget -->
 				
