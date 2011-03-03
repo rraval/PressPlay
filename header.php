@@ -62,7 +62,7 @@
 			width:80px;
 			height:80px;
 			float:left; 
-			margin:15px -15px 20px 20px;
+			margin:15px 0px 20px 20px;
 			background-image:url('<?php echo $pp_header_logo_url; ?>');
 			background-repeat:no-repeat;
 		}
@@ -101,7 +101,7 @@
 <div id="header">
 
 	<div id="title-headers">
-		<div id="title-logo"></div>
+		<div id="title-logo"><a href="<?php echo get_option('home'); ?>/"></a></div>
 		<div id="title-container">
 			<h1 id="site-title"><a href="<?php echo get_option('home'); ?>/"><?php bloginfo('name'); ?></a></h1>
 			<h4 id="site-blurb"><?php bloginfo('description'); ?></h4>
