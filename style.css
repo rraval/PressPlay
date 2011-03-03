@@ -82,7 +82,8 @@ font:1em courier new;
 
 pre {
 border: 1px solid #c0c3ac;
-font:1em courier new;
+font-size:1em;
+font-face: courier new, monospace;
 color:#233;
 margin:10px 10px 20px 10px;
 padding:10px;
@@ -192,6 +193,7 @@ ul#page-list {
 padding-left:15px;
 width:865px;
 overflow:hidden;
+display:inline;
 }
 
 ul#page-list li {
@@ -218,7 +220,7 @@ text-decoration:none;
 }
 
 ul#page-list li a:hover {
-background-color:none;
+background-color:transparent;
 color:#feb638;
 }
 
@@ -328,7 +330,7 @@ background-color:#fff;
 }
 
 ul#category-list li a:hover {
-background-color:none;
+background-color:transparent;
 }
 
 ul#category-list ul {
@@ -445,7 +447,7 @@ padding-right:10px;
 div#content {
 width:625px;
 float:left;
-padding:20px;
+padding:2%;
 }
 
 div.post-heading {
@@ -1077,6 +1079,12 @@ float:right;
 /* Custom Additions -- Ronuk Raval ------------ */
 div#twitter {
 overflow: auto;
+}
+
+div.post-body a.more-link {
+padding-top: 20px;
+float: right;
+font-size:small;
 }
 
 div#title-logo a {

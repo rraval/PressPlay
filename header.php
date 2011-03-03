@@ -53,29 +53,29 @@
 		}
 		div.archive-banner { border-bottom:0; }
 		div.archive-banner-bottom { border-top:0; }
-	<?php } 
-	
+	<?php }
+
 	if(($pp_width == "stretched_width") && ($pp_sidebar == "right_sidebar")){ ?>
-		div#sidebar { padding-right:20px; }
+		div#sidebar { padding-right:2%; }
 	<?php } elseif (($pp_width == "stretched_width") && ($pp_sidebar == "left_sidebar")){ ?>
-		div#sidebar { padding-left:20px; }
+		div#sidebar { padding-left:2%; }
 	<?php } ?>
-	
+
 	<?php if($pp_header_background_url != ""){ ?>
 		div#header { background-image:url('<?php echo $pp_header_background_url; ?>'); }
 	<?php }
-	
+
 	if($pp_header_logo_url != ""){ ?>
 		div#title-logo {
 			width:80px;
 			height:80px;
-			float:left; 
+			float:left;
 			margin:15px 0px 20px 20px;
 			background-image:url('<?php echo $pp_header_logo_url; ?>');
 			background-repeat:no-repeat;
 		}
 	<?php }
-	
+
 	if($pp_header_title_url != ""){ ?>
 		h1#site-title { display:none; }
 		h4#site-blurb { display:none; }
