@@ -1074,6 +1074,11 @@ div.footer-right {
 float:right;
 }
 
+/* Custom Additions -- Ronuk Raval ------------ */
+div#twitter {
+overflow: auto;
+}
+
 div#title-logo a {
 display: block;
 width: 100%;

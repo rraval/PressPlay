@@ -20,6 +20,9 @@
 					<ul class="tabnav">
 						<li><a href="#recent-posts"><?php _e('Posts', 'pressplay'); ?></a></li>
 						<li><a href="#recent-comments"><?php _e('Comments', 'pressplay'); ?></a></li>
+						<?php if(get_option('pp_twitter_username') != "") { ?>
+							<li><a href="#twitter_update_list"><?php _e('Twitter', 'pressplay'); ?></a></li>
+						<?php } ?>
 					</ul>
 					
 					<div id="recent-posts" class="tabdiv">    
@@ -61,6 +64,12 @@ echo $output;
 ?>
 
 					</div><!-- #recent-comments -->
+
+					<?php if(get_option('pp_twitter_username') != "") { ?>
+						<div id="twitter_update_list" class="tabdiv">
+							<?php _e('Loading feed...', 'pressplay'); ?>
+						</div><!-- #twitter -->
+					<?php } ?>
 				
 				</div><!-- .tab-box -->
 			</div><!-- .widget -->

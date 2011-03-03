@@ -1,3 +1,12 @@
+<?php // initialize Theme Options variables
+	global $options;
+	foreach ($options as $value){
+		if (get_option( $value['id'] ) === FALSE){
+			$$value['id'] = $value['std'];
+		} else {
+			$$value['id'] = get_option( $value['id'] );
+		}
+	} ?>
 <!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" <?php language_attributes(); ?>>
 
@@ -12,23 +21,21 @@
 	<?php wp_enqueue_script('jquery');
 	wp_enqueue_script('jquery-ui-core');
 	wp_enqueue_script('jquery-ui-tabs');
-	wp_enqueue_script('jquery-tabbox-pressplay', get_bloginfo('template_url') . '/library/tabs.js', array('jquery-ui-core','jquery-ui-tabs')); ?>
-	<?php wp_head(); // for plugins ?>
-	
-	<?php // initialize Theme Options variables
-	global $options;
-	foreach ($options as $value){
-		if (get_option( $value['id'] ) === FALSE){
-			$$value['id'] = $value['std'];
-		} else {
-			$$value['id'] = get_option( $value['id'] );
-		}
-	} ?><style type="text/css">
-	
+	wp_enqueue_script('jquery-tabbox-pressplay', get_bloginfo('template_url') . '/library/tabs.js', array('jquery-ui-core','jquery-ui-tabs'));
+	if($pp_twitter_username != "") {
+		wp_enqueue_script('twitter-pressplay-callback', 'http://twitter.com/javascripts/blogger.js', array(), false, true);
+		wp_enqueue_script('twitter-pressplay', 'http://twitter.com/statuses/user_timeline/' . $pp_twitter_username . '.json?callback=twitterCallback2&count=' . $pp_twitter_count, array(), false, true); ?>
+
+	<?php
+		} // endif for twitter username
+		wp_head(); // for plugins ?>
+
+	<style type="text/css">
+
 	<?php if($pp_sidebar == "left_sidebar"){ ?>
 		div#content { float:right; }
-	<?php } 
-	
+	<?php }
+
 	if($pp_width == "stretched_width"){ ?>
 		div#wrapper { width:100%; }
 		div#menu { width:100% }
@@ -81,14 +88,32 @@
 			background-repeat:no-repeat;
 		}
 	<?php } ?></style>
-	
+
 </head>
 
 <body>
 
 <div id="menu">
-
-	<div><a href="<?php bloginfo('rss2_url'); ?>"><?php _e('Subscribe', 'pressplay'); ?> &nbsp;<img src="<?php bloginfo('template_directory'); ?>/images/rss.png" alt="RSS" /></a></div>
+	<div>
+		<?php if($pp_twitter_username != "") {  // two items, icons on left ?>
+			<a href="<?php bloginfo('rss2_url'); ?>">
+				<img src="<?php bloginfo('template_directory'); ?>/images/rss.png" alt="RSS" />
+				<?php _e('Subscribe', 'pressplay'); ?>
+			</a>
+			&nbsp;
+			<a href="http://twitter.com/<?php echo $pp_twitter_username ?>">
+				<img src="<?php bloginfo('template_directory'); ?>/images/twitter.png" alt="Twitter" />
+				<?php _e('Follow on Twitter'); ?>
+			</a>
+		<?php } else { // subscribe only, icon on right ?>
+			<a href="<?php bloginfo('rss2_url'); ?>">
+                                <?php _e('Subscribe', 'pressplay'); ?>
+				&nbsp;
+                                <img src="<?php bloginfo('template_directory'); ?>/images/rss.png" alt="RSS" />
+                        </a>
+		<?php } ?>
+	</div>
+	<?php if($pp_above_header != "above_header_nothing") { ?>
 	<ul id="page-list">
 		<?php if($pp_above_header == "above_header_pages"){
 			wp_list_pages('title_li=');
@@ -96,9 +121,10 @@
 			wp_list_categories('title_li=');
 		} else { } ?>
 	</ul><!-- #page-list -->
-	
+	<?php } ?>
+
 </div><!-- menu -->
-	
+
 <div id="header">
 
 	<div id="title-headers">
@@ -108,27 +134,29 @@
 			<h4 id="site-blurb"><?php bloginfo('description'); ?></h4>
 		</div>
 	</div>
-	
+
 </div><!-- #header -->
 
 <div id="wrapper">
-	
+
 	<div id="navigation">
-		
-		<div id="right-navigation">	
+
+		<div id="right-navigation">
 			<?php include (TEMPLATEPATH . '/searchform.php'); ?>
 		</div><!-- #right-navigation -->
-		
+
+		<?php if($pp_below_header != "below_header_nothing") { ?>
 		<ul id="category-list">
 			<?php if($pp_below_header == "below_header_pages"){
 				wp_list_pages('title_li=');
 			} elseif($pp_below_header == "below_header_categories"){
 				wp_list_categories('title_li=');
-			} else { } ?>		
+			} else { } ?>
 		</ul><!-- #category-list -->
-		
+		<?php } ?>
+
 		<div class="divclear"></div>
-		
+
 	</div><!-- #navigation -->
 
 <?php if (is_page_template('no-sidebar.php')){ ?>
