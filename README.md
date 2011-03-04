@@ -13,14 +13,13 @@ that would have made things easier for me). I've also tried to maintain the
 convention of translatable strings, so if you're the kind of person that's
 into internationalization, go for it.
 
-A live demo of all the changes can be found at my blog: [Zero Indexed]
-(http://zeroindexed.com).
+A live demo of all the changes can be found at my blog: [Zero Indexed](http://zeroindexed.com).
 
 The initial commit to this repository is PressPlay v2.1, and all modifications
 are based upon this version. An unofficial changelog (see repo history for
 details):
 
-* Twitter integration &emdash; when a twitter username is configured through
+* Twitter integration: when a twitter username is configured through
   theme options, a "Follow on Twitter" link appears next to the "Subscribe"
   link, in the top right corner.
 
@@ -32,7 +31,7 @@ details):
 * Removed "Authors" tab. Redundant for single author blogs like mine. Someday
   I'll make the sidebar tabs customizable through theme options.
 
-* Style changes &emdash; true fluid width. Fixes a bug where a right sidebar
+* Style changes: true fluid width. Fixes a bug where a right sidebar
   goes below posts if the window isn't wide enough.
 
 * Pages reference "/favicon.ico" in the *root of your site*.
